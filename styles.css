@@ -7,23 +7,40 @@
 body {
     height: 100dvh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2em;
-}
-
-.change-colour {
-    background: black;
 }
 
 
-.grid-box {
+.main {
+    outline: 1px solid black;
+    padding: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+}
+
+
+.grid {
     border: 1px solid black;
+    height: 350px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
 }
 
+.row {
+    border: 1px solid rgba(0, 0, 0, 1);
+    flex-grow: 1;
+    display: flex;
+}
 
 .column {
-    width: 10px;
-    height: 10px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    flex-grow: 1
+}
+
+.coloured {
+    background: black;
 }

@@ -1,31 +1,33 @@
-const GENERATE = document.querySelector('#generate');
-GENERATE.addEventListener('click', () => {
-  generateGrid(row, column);
-})
-
-let row = 16; 
-let column = 16;
-
-function generateGrid(row, column) {
-  /* generates a grid by creating an amount of rows which is 
-  filled by a given amount of items through a loop*/
-  const BOX = document.querySelector('.grid-box');
-  for (let i = 0; i <= row; i++) {
-    const GRID_ROW = document.createElement('div');
-    GRID_ROW.classList.toggle('row');
-    GRID_ROW.style.cssText = 'display: flex;'
-    for (let c = 0; c <= column; c++) {
-      const GRID_COLUMN = document.createElement('div');
-      GRID_COLUMN.classList.toggle('column');
-      GRID_COLUMN.addEventListener('mouseover', () => {
-        changeColour(GRID_COLUMN);
-      })
-      GRID_ROW.append(GRID_COLUMN);
+function genGrid(rows = 16, columns = 16) {
+  const GRID = document.querySelector('.grid');
+  for (let i = 0; i < rows; i++) {
+    const ROW = document.createElement('div');
+    ROW.classList.toggle('row');
+    for (let c = 0; c < columns; c++) {
+      const COLUMN = document.createElement('div');
+      COLUMN.classList.toggle('column');
+      COLUMN.addEventListener('mouseover', () => {
+          COLUMN.classList.add('coloured');
+        });
+      ROW.append(COLUMN);
     }
-    BOX.append(GRID_ROW);
+    GRID.append(ROW);
   }
 }
 
-function changeColour(element) {
-  element.classList.add('change-colour');
+genGrid();
+
+
+function delGrid() {
+  const TARGET = document.getElementsByClassName('row');
+  Array.from(TARGET).forEach((target) => {
+    target.remove();    
+  })
 }
+
+
+const BUTTON = document.querySelector('.reset');
+BUTTON.addEventListener('click', () => {
+  delGrid();
+  genGrid();
+});
