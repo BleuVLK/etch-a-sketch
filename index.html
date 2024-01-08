@@ -8,8 +8,14 @@
     <body>
         <div class="main">
             <div class="input">
-                <input id="row-slider" type="range" min="4" max="20" value="16" step="1">
-                <p>Rows: <output id="row-slider-value"></output></p>
+                <div class="row-slider-container">
+                    <input id="row-slider" type="range" min="10" max="30" value="16" step="1">
+                    <p>Rows: <output id="row-slider-value"></output></p>
+                </div>
+                <div class="column-slider-container">
+                    <input id="column-slider" type="range" min="10" max="30" value="16" step="1">
+                    <p>Columns: <output id="column-slider-value"></output></p>
+                </div>
                 <button class="reset">reset</button>
             </div>
             <div class="grid"></div>
