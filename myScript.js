@@ -31,3 +31,19 @@ BUTTON.addEventListener('click', () => {
   delGrid();
   genGrid();
 });
+
+
+
+let sliderRows = 16;
+let sliderColumns = 16;
+
+
+const VALUE = document.querySelector("#row-slider-value");
+const INPUT = document.querySelector('#row-slider');
+VALUE.textContent = INPUT.value;
+INPUT.addEventListener('input', (event) => {
+  VALUE.textContent = event.target.value;
+  sliderRows = event.target.value;
+  delGrid();
+  genGrid(sliderRows, sliderColumns);
+})
