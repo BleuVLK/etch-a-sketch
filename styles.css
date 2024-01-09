@@ -41,13 +41,6 @@ body {
     flex-grow: 1
 }
 
-.coloured {
-    background: black;
-}
-
-.rainbow {
-    background: random(color);
-}
 
 .input {
     border: 1px solid black;
