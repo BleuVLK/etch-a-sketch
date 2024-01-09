@@ -25,8 +25,23 @@ genGrid(); /* triggers function on load */
 
 /* colour handling section. see changeColour() for explanation */
 
-
+let trail = false;
 let rainbow = false;
+
+
+const BODY = document.querySelector('body');
+/* scope of the event function should be reduced
+when the UI is designed but it cannot be only
+as big as the grid itself because if the user
+releases the mouse out of it, trail won't be set
+back to false */
+BODY.addEventListener('mousedown', () => {
+  trail = true;
+})
+BODY.addEventListener('mouseup', () => {
+  trail = false;
+})
+
 
 const RAINBOW = document.querySelector('#rainbow');
 RAINBOW.addEventListener('change', e => {
@@ -40,20 +55,24 @@ function random() {
 
 
 function changeColour(element) {
-  /* colour assigned on hover will depend on the condition being fulfilled
-  If checkbox is checked, the rainbow var is changes to true. Then,
-  the random function is called three times and the values are passed
-  to an rbg based background. If turned off, the colour will default to black */
-  switch(true) {
-    case rainbow === true:
-      let v1 = random();
-      let v2 = random();
-      let v3 = random();
-      element.style.cssText = `background-color: rgb(${v1}, ${v2}, ${v3});`;
-      break;
-    case rainbow === false:
-      element.style.cssText = `background-color: black;`;
-  }
+  /* draws only if trail is set to true (holding down on the mouse)
+  colour assigned on hover will depend on the condition being
+  fulfilled. If checkbox is checked, the rainbow var is changes
+  to true. Then, the random function is called three times and 
+  the values are passed to an rbg based background. If turned
+  off, the colour will default to black */
+  if (trail === true) {
+    switch(true) {
+      case rainbow === true:
+        let v1 = random();
+        let v2 = random();
+        let v3 = random();
+        element.style.cssText = `background-color: rgb(${v1}, ${v2}, ${v3});`;
+        break;
+      case rainbow === false:
+        element.style.cssText = `background-color: black;`;
+    }
+  }  
 }
 
 
@@ -84,7 +103,7 @@ BUTTON.addEventListener('click', () => {
 /* Slider related code */
 
 
-let sliderRows = 16; /* see Row_Slider event listener section below */
+let sliderRows = 16; /* see ROW_SLIDER event listener section below */
 let sliderColumns = 16;
 
 
