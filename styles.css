@@ -2,53 +2,154 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
 }
+
 
 body {
     height: 100dvh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: linear-gradient(
+    to top right,
+    #FCF4C9 16.6%,
+    #FEE3E2 16.6% 33.2%,
+    #FBCDF2 33.2% 49.8%,
+    #E8BEFA 49.8% 66.4%,
+    #ABBFFF 66.4% 83%,
+    #BBF3C0 83%);
+}
+
+
+h1 {
+    color: rgba(255, 255, 255, .5);
+    text-shadow: 0 2px 42px rgba(0, 0, 0, .2);
+    font-size: 48px;
+    margin-bottom: 2em;
+
 }
 
 
 .main {
-    outline: 1px solid black;
     padding: 4em;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3em;
+    gap: 6em;
+}
+
+
+.grid-container {
+    padding: 5em;
 }
 
 
 .grid {
-    border: 1px solid black;
     height: 350px;
     width: 350px;
     display: flex;
     flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.3)
 }
 
+
 .row {
-    border: 1px solid black;
     flex-grow: 1;
     display: flex;
 }
 
+
 .column {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.25);
     flex-grow: 1
 }
 
 
 .input {
-    border: 1px solid black;
-    padding: 1em;
+    padding: 3em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2em;
+    background-color: rgba(255, 255, 255, 0.3) !important;
 
 }
+
+.reset {
+    padding-block: 3px;
+    padding-inline: 8px;
+    border-radius: 4px !important;
+    font-weight: normal;
+    color: rgba(150, 150, 150, 1);
+    background-color: inherit;
+    border: 2px solid rgba(255, 255, 255, .5);
+    box-shadow: 0 2px 45px rgba(0, 0 , 0, .2);
+    cursor: pointer;
+}
+
+
+.reset:hover {
+    box-shadow: 0 0 8px white;
+    text-shadow: 0 0 2px white;
+    font-weight: bold;
+}
+
+
+p,
+label {
+    color: rgba(150, 150, 150, 1);
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+.slider {
+    width: 150px;
+    height: 10px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, .2);
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 45px rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
+
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: 0 2px 45px rgba(0, 0, 0, .5);
+    background: rgba(255, 255, 255, .2);
+}
+
+
+.slider::-moz-range-thumb {
+    -moz-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: 0 2px 45px rgba(0, 0, 0, .5);
+    background: rgba(255, 255, 255, .2);
+}
+
+
+#rainbow {
+    cursor: pointer;
+}
+
+.glass { 
+    background: rgba(255, 255, 255, .1); /*the last value is the opacity*/
+    box-shadow: 0 2px 45px rgba(0, 0, 0, .2);
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px); /*this is what makes the image distort*/
+    border-radius: 25px;
+  }

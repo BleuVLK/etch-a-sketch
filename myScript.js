@@ -10,6 +10,7 @@ function genGrid(rows = 16, columns = 16) {
     for (let c = 0; c < columns; c++) {
       const COLUMN = document.createElement('div');
       COLUMN.classList.toggle('column');
+      COLUMN.style.opacity = '0.5';
       COLUMN.addEventListener('mouseover', () => {
           changeColour(COLUMN);
         });
@@ -67,10 +68,10 @@ function changeColour(element) {
         let v1 = random();
         let v2 = random();
         let v3 = random();
-        element.style.cssText = `background-color: rgb(${v1}, ${v2}, ${v3});`;
+        element.style.cssText = `background: rgb(${v1}, ${v2}, ${v3});`;
         break;
       case rainbow === false:
-        element.style.cssText = `background-color: black;`;
+        element.style.cssText = `background: black;`;
     }
   }  
 }
