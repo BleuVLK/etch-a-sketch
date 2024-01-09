@@ -30,12 +30,7 @@ let trail = false;
 let rainbow = false;
 
 
-const BODY = document.querySelector('body');
-/* scope of the event function should be reduced
-when the UI is designed but it cannot be only
-as big as the grid itself because if the user
-releases the mouse out of it, trail won't be set
-back to false */
+const BODY = document.querySelector('.grid-container');
 BODY.addEventListener('mousedown', () => {
   trail = true;
 })
@@ -75,6 +70,7 @@ function changeColour(element) {
     }
   }  
 }
+
 
 
 /* reset button section */
