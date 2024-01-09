@@ -94,6 +94,8 @@ BUTTON.addEventListener('click', () => {
   sliderRows = 16;
   COLUMN_SLIDER_VALUE.textContent = 16;
   columnRows = 16;
+  COLUMN_SLIDER.value = 16;
+  ROW_SLIDER.value = 16;
 });
 
 
