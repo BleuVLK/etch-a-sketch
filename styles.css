@@ -45,6 +45,9 @@ body {
     background: black;
 }
 
+.rainbow {
+    background: random(color);
+}
 
 .input {
     border: 1px solid black;

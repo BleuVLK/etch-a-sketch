@@ -1,6 +1,8 @@
 function genGrid(rows = 16, columns = 16) {
   /* On loading webpage generates a 16x16 grid by means of two loops
-  1st loop generates a row & 2nd 16 columns into that row. */
+  1st loop generates a row & 2nd 16 columns into that row.
+  Each column is appended an event listener with a function to
+  change their colour on hover */
   const GRID = document.querySelector('.grid');
   for (let i = 0; i < rows; i++) {
     const ROW = document.createElement('div');
@@ -9,7 +11,7 @@ function genGrid(rows = 16, columns = 16) {
       const COLUMN = document.createElement('div');
       COLUMN.classList.toggle('column');
       COLUMN.addEventListener('mouseover', () => {
-          COLUMN.classList.add('coloured');
+          changeColour(COLUMN);
         });
       ROW.append(COLUMN);
     }
@@ -18,7 +20,41 @@ function genGrid(rows = 16, columns = 16) {
 }
 
 
-genGrid(); /* trigers function on load */
+genGrid(); /* triggers function on load */
+
+
+/* colour handling section. see changeColour() for explanation */
+
+
+let rainbow = false;
+
+const RAINBOW = document.querySelector('#rainbow');
+RAINBOW.addEventListener('change', e => {
+  e.target.checked ? rainbow = true : rainbow = false;
+})
+
+
+function random() {
+  return Math.floor(Math.random() * 255);
+}
+
+
+function changeColour(element) {
+  /* colour assigned on hover will depend on the condition being fulfilled
+  If checkbox is checked, the rainbow var is changes to true. Then,
+  the random function is called three times and the values are passed
+  to an rbg based background. If turned off, the colour will default to black */
+  switch(true) {
+    case rainbow === true:
+      let v1 = random();
+      let v2 = random();
+      let v3 = random();
+      element.style.cssText = `background-color: rgb(${v1}, ${v2}, ${v3});`;
+      break;
+    case rainbow === false:
+      element.style.cssText = `background-color: black;`;
+  }
+}
 
 
 /* reset button section */
